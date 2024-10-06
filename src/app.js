@@ -9,7 +9,7 @@ require('dotenv').config();
 
 
 const app = express();
-const PHOTO_FOLDER = process.env.PHOTO_FOLDER; // Change ce chemin avec le dossier contenant tes photos
+const PHOTO_FOLDER = process.env.PHOTO_FOLDER || path.join(__dirname, 'default_directory');
 
 // Configuration de Handlebars
 app.engine('handlebars', engine({
