@@ -36,7 +36,13 @@ app.get('/', (req, res) => {
             return;
         }
         const serverUrl = `http://${getLocalIpAddress()}:${PORT}`;
-        QRCode.toDataURL(serverUrl, (err, qrCodeUrl) => {
+        const options = {
+            color: {
+                dark: '#FFF',
+                light: '#0000'
+            }
+        };
+        QRCode.toDataURL(serverUrl, options, (err, qrCodeUrl) => {
             if (err) {
                 res.status(500).send('Erreur lors de la génération du QR code');
                 return;
